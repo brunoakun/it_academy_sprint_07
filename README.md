@@ -42,3 +42,13 @@ const appRutas: Routes = [
   ],
 ...
 ```
+en app.components.html, añadir los href's y el control de la rutas:
+
+```
+<li class="nav-item">
+    <a class="nav-link" href="/proyectos">Proyectos</a>
+</li>
+...
+
+<router-outlet></router-outlet>
+```
