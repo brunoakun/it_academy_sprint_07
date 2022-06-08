@@ -2,7 +2,8 @@
 
 ## 1.- bootstrap
 npm install bootstrap 
-> In your angular.json add bootstrap stylesheet and javascript
+
+ In your angular.json add bootstrap stylesheet and javascript
 ```
 "styles": [
   "src/scss/styles.scss",
@@ -13,7 +14,8 @@ npm install bootstrap
   "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
 ```
-> Now add popperjs and add it to your scripts
+ Now add popperjs and add it to your scripts
+ 
 npm install @popperjs/core 
 ```
 "scripts": [
