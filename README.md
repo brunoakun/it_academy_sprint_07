@@ -1,8 +1,7 @@
 # ItAcademySprint07
 
 ## 1.- bootstrap
-npm install bootstrap 
-
+*npm install bootstrap* 
 In your angular.json add bootstrap stylesheet and javascript
 ```
 "styles": [
@@ -15,8 +14,7 @@ In your angular.json add bootstrap stylesheet and javascript
 ]
 ```
 Now add popperjs and add it to your scripts
-
-npm install @popperjs/core
+*npm install @popperjs/core*
 ```
 "scripts": [
   "./node_modules/@popperjs/core/dist/umd/popper.min.js",
