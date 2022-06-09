@@ -91,3 +91,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     })
   }
   ```
+
+## 4.- Crear un servicio
+- ng generate service tarificador
+
+  ```
+// registrarlo en app.module.ts
+  providers: [Servicio01Service],
+  
+  ```

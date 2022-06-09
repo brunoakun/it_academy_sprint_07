@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TarificadorService } from '../tarificador.service';
+import { Presupuesto } from '../presupuesto.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,25 +12,23 @@ export class HomeComponent implements OnInit {
   //PROPIEDADES 
   web: boolean = false;
   seo: boolean = false;
-  adwords: boolean = false;
-  total: number = 0;
+  adw: boolean = false;
+  presup!: Presupuesto;
 
 
   //CONSTRUCTOR
-  constructor() {
+  constructor(private servTarificador: TarificadorService) {
   }
 
   //METODOS
   ngOnInit(): void {
+    this.presup = new Presupuesto(this.web, this.seo, this.adw, 1, 1, 0)
   }
 
   checkboxChange(e: Event) {
     console.log(e);
-    console.log(`Estado= ${this.web} ${this.seo} ${this.adwords}`);
-    this.total = 0;
-    if (this.web) this.total += 500;
-    if (this.seo) this.total += 300;
-    if (this.adwords) this.total += 200;
+    console.log(`Estado= ${this.presup.web} ${this.presup.seo} ${this.presup.adwords}`);
+    this.servTarificador.calculaTotal(this.presup);
   }
 
 }

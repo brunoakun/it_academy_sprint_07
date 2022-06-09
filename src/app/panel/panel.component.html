@@ -1,0 +1,31 @@
+<div class="col-6">
+    <form [formGroup]="formOpcionesWeb" class="m-3 border border-3 border-dark rounded-3 p-4">
+        <div class="row align-items-center">
+
+            <div class="col-6 mb-2">
+                <label for="paginas" class="col-form-label">Número de páginas</label>
+            </div>
+            <div class="col-6 mb-2">
+                <input type="number" id="paginas" #pagina class="form-control" [(ngModel)]="presup.webPaginas"
+                    [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1" required>
+
+                <div [hidden]="pagina.value" class="mt-2 alert alert-danger">
+                    Páginas es required
+                </div>
+            </div>
+
+            <div class="col-6">
+                <label for="idiomas" class="col-form-label">Número de idiomas</label>
+            </div>
+            <div class="col-6">
+                <input type="number" id="idiomas" #idiomas class="form-control" [(ngModel)]="presup.webIdiomas"
+                    [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1">
+                <div [hidden]="idiomas.value" class="mt-2 alert alert-danger">
+                    idiomas es required
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>

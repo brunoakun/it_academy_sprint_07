@@ -1,32 +1,27 @@
-<h2 class="text-success">Presupuesto</h2>
+<h2 class="text-success">Presupuesto:</h2>
 
 <form>
 
     <div class="form-check">
-        <input type="checkbox" id="web" [(ngModel)]="web" [ngModelOptions]="{standalone: true}"
+        <input type="checkbox" id="web" [(ngModel)]="presup.web" [ngModelOptions]="{standalone: true}"
             (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="web">
-            Una página WEB (500€)
-        </label>
+        <label class="form-check-label" for="web"> Una página WEB (500€) </label>
     </div>
 
+    <app-panel *ngIf="presup.web" [presup]="presup"></app-panel>
 
     <div class="form-check">
-        <input type="checkbox" id="seo" [(ngModel)]="seo" [ngModelOptions]="{standalone: true}"
+        <input type="checkbox" id="seo" [(ngModel)]="presup.seo" [ngModelOptions]="{standalone: true}"
             (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="seo">
-            Una consultoria SEO (300€)
-        </label>
+        <label class="form-check-label" for="seo"> Una consultoria SEO (300€) </label>
     </div>
 
     <div class="form-check">
-        <input type="checkbox" id="adwords" [(ngModel)]="adwords" [ngModelOptions]="{standalone: true}"
+        <input type="checkbox" id="adwords" [(ngModel)]="presup.adwords" [ngModelOptions]="{standalone: true}"
             (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="adwords">
-            Una campaña de Google Ads (200€)
-        </label>
+        <label class="form-check-label" for="adwords"> Una campaña de Google Ads (200€) </label>
     </div>
 
 
 </form>
-<p class="fw-bold">Precio: {{total |number:'1.0-0'  }}€</p>
+<p class="fw-bold">Precio: {{presup.total |number:'1.0-0' }}€</p>
