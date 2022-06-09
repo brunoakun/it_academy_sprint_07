@@ -48,55 +48,59 @@ export class AppRoutingModule { }
 ## 3.- Formularios reactivos
 - Crear el formulario en home.component.html: con los nombres de los campos y la función donde se recogerán los valores del form 
 ```
-<form [formGroup]="formContacto" (ngSubmit)="enviar(formContacto.value)">
-    <label>Nombre</label>
-    <input formControlName="nombre" type="text">
-    <br>
-    <label>eMail</label>
-    <input formControlName="email" type="email">
-    <br>
-    <label>comentario</label>
-    <input formControlName="comentario" type="text">
-    <br>
-    <button [disabled]="formContacto.invalid" type="submit">Enviar</button>
-</form>
+  <form [formGroup]="formOpcionesWeb" class="m-3 border border-3 border-dark rounded-3 p-4">
+    <div class="row align-items-center">
+
+      <div class="col-6 mb-2">
+          <label for="paginas" class="col-form-label">Número de páginas</label>
+      </div>
+      <div class="col-6 mb-2">
+          <input type="number" id="paginas" #pagina class="form-control" [(ngModel)]="presup.webPaginas"
+              [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1" required>
+
+          <div [hidden]="pagina.value" class="mt-2 alert alert-danger">
+              Páginas es required
+          </div>
+      </div>
+
+      ...
+  </form>
 ```
 - importar el módulo ReactiveFormsModule en app.module.ts:
 ```
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 ...
 
 @NgModule({
 ...
-  imports: [
+ imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRutas),
     ReactiveFormsModule
   ],
 ...
 ```
-- en contacto.components.ts, definir el nombre del formulario y en el constructor definir las reglas de validación del formulario
+- en panel.components.ts, definir el nombre del formulario y en el constructor definir las reglas de validación del formulario
 ```
-  formContacto: FormGroup;
+  formOpcionesWeb: FormGroup;
 
-  constructor(
+   constructor(
+    private tarService: TarificadorService,
     private _builder: FormBuilder
   ) {
-    this.formContacto = this._builder.group({
-      nombre: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      comentario: ['', Validators.required]
+    this.formOpcionesWeb = this._builder.group({
+      paginas: ['1', Validators.required],
+      idiomas: ['1', Validators.required]
     })
   }
   ```
 
 ## 4.- Crear un servicio
 - ng generate service tarificador
-
-  ```
-// registrarlo en app.module.ts
+- registrarlo en app.module.ts
+```
+...
   providers: [Servicio01Service],
-  
-  ```
+...
+```
