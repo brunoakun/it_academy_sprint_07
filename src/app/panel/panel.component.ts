@@ -24,8 +24,8 @@ export class PanelComponent implements OnInit {
       idiomas: ['1', Validators.required]
     })
   }
- 
 
+  //METODOS
   ngOnInit(): void {
   }
 
@@ -33,5 +33,18 @@ export class PanelComponent implements OnInit {
     console.log(`Páginas ${this.presup.webPaginas} Idiomas ${this.presup.webIdiomas}`);
     this.tarService.calculaTotal(this.presup);
   }
+
+  pags(op: string, num: number): void {
+    if (op == '+') this.presup.webPaginas++;
+    if (op == '-' && this.presup.webPaginas > 1) this.presup.webPaginas--;
+    this.calcular();
+  }
+  idio(op: string, num: number): void {
+    if (op == '+') this.presup.webIdiomas++;
+    if (op == '-' && this.presup.webIdiomas > 1) this.presup.webIdiomas--;
+    this.calcular();
+  }
+
+
 
 }

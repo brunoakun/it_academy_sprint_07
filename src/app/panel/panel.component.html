@@ -1,31 +1,36 @@
-<div class="col-6">
+<div class="col-4">
     <form [formGroup]="formOpcionesWeb" class="m-3 border border-3 border-dark rounded-3 p-4">
-        <div class="row align-items-center">
 
-            <div class="col-6 mb-2">
-                <label for="paginas" class="col-form-label">Número de páginas</label>
-            </div>
-            <div class="col-6 mb-2">
-                <input type="number" id="paginas" #pagina class="form-control" [(ngModel)]="presup.webPaginas"
-                    [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1" required>
-
-                <div [hidden]="pagina.value" class="mt-2 alert alert-danger">
-                    Páginas es required
+        <div class="row mb-2">
+            <label for="paginas" class="col-sm-7 col-form-label">Número de páginas</label>
+            <div class="col-sm-5">
+                <div class="input-group mb-3">
+                    <button class="btn btn-warning" type="button" (click)="pags('-',presup.webPaginas)">-</button>
+                    <input type="number" id="paginas" #pagina class="form-control" [(ngModel)]="presup.webPaginas"
+                        [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1" required>
+                    <button class="btn btn-warning" type="button" (click)="pags('+',presup.webPaginas)">+</button>
                 </div>
             </div>
-
-            <div class="col-6">
-                <label for="idiomas" class="col-form-label">Número de idiomas</label>
+            <div [hidden]="presup.webPaginas" class="mt-2 alert alert-danger">
+                Páginas es required
             </div>
-            <div class="col-6">
-                <input type="number" id="idiomas" #idiomas class="form-control" [(ngModel)]="presup.webIdiomas"
-                    [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1">
-                <div [hidden]="idiomas.value" class="mt-2 alert alert-danger">
-                    idiomas es required
-                </div>
-            </div>
-
-
         </div>
+        
+        <div class="row mb-2">
+            <label for="idiomas" class="col-sm-7 col-form-label">Número de idiomas</label>
+            <div class="col-sm-5">
+                <div class="input-group">
+                    <button class="btn btn-warning" type="button" (click)="idio('-',presup.webIdiomas)">-</button>
+                    <input type="number" id="idiomas" #idiomas class="form-control" [(ngModel)]="presup.webIdiomas"
+                        [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1">
+                    <button class="btn btn-warning" type="button" (click)="idio('+',presup.webIdiomas)">+</button>
+                </div>
+            </div>
+            <div [hidden]="presup.webIdiomas" class="mt-2 alert alert-danger">
+                idiomas es required
+            </div>
+        </div>
+
+
     </form>
 </div>

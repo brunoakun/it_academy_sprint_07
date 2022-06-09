@@ -101,6 +101,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 - registrarlo en app.module.ts
 ```
 ...
-  providers: [Servicio01Service],
+  providers: [TarificadorService],
 ...
 ```
