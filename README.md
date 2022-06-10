@@ -118,7 +118,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     this.modal.open(contenido, { size: 'lg' });
   }
 ```
-- *Crear la plantilla modal.html , dentro del tag <ng-template>  con el  #nombre para poder lanzarlo*
+- *Crear la plantilla modal.html , dentro del tag < ng-template>  con el  #nombre para poder lanzarlo*
 ```
 <ng-template #contenido let-modal>   
     <div class="modal-body">
