@@ -1,7 +1,7 @@
 # ItAcademySprint07 Presupuesto Web
 
 ## 1.- bootstrap
-npm install bootstrap 
+- npm install bootstrap 
 - In your angular.json add bootstrap stylesheet and javascript
 ```
 "styles": [
