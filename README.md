@@ -14,7 +14,7 @@
 ]
 ```
 - Now add popperjs and add it to your scripts
-npm install @popperjs/core 
+- npm install @popperjs/core 
 ```
 "scripts": [
   "./node_modules/@popperjs/core/dist/umd/popper.min.js",
