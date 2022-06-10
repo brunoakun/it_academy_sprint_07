@@ -1,8 +1,8 @@
 # ItAcademySprint07 Presupuesto Web
 
 ## 1.- bootstrap
-- npm install bootstrap 
-- In your angular.json add bootstrap stylesheet and javascript
+- npm install bootstrap
+- *In your angular.json add bootstrap stylesheet and javascript*
 ```
 "styles": [
   "src/scss/styles.scss",
@@ -14,7 +14,7 @@
 ]
 ```
 - npm install @popperjs/core 
-- Add popperjs and add it to your scripts
+- *Add popperjs and add it to your scripts*
 ```
 "scripts": [
   "./node_modules/@popperjs/core/dist/umd/popper.min.js",
@@ -22,7 +22,7 @@
 ]
 ```
 ## 2.- Montar el ROUTING  
-- En src\app\app-routing.module.ts, crear la constante appRutas y exportarla
+- *En src\app\app-routing.module.ts, crear la constante appRutas y exportarla*
 ```
 const routes: Routes = [
   { path: '', component:  HomeComponent },
@@ -35,7 +35,7 @@ const routes: Routes = [
 export class AppRoutingModule { }
 ...
 ```
-- en app.components.html, añadir los href's y el control de la rutas:
+- *en app.components.html, añadir los href's y el control de la rutas:*
 
 ```
 <li class="nav-item">
@@ -46,7 +46,7 @@ export class AppRoutingModule { }
 <router-outlet></router-outlet>
 ```
 ## 3.- Formularios reactivos
-- Crear el formulario en home.component.html: con los nombres de los campos y la función donde se recogerán los valores del form 
+- *Crear el formulario en home.component.html: con los nombres de los campos y la función donde se recogerán los valores del form*
 ```
   <form [formGroup]="formOpcionesWeb" class="m-3 border border-3 border-dark rounded-3 p-4">
     <div class="row align-items-center">
@@ -66,7 +66,7 @@ export class AppRoutingModule { }
       ...
   </form>
 ```
-- importar el módulo ReactiveFormsModule en app.module.ts:
+- *importar el módulo ReactiveFormsModule en app.module.ts:*
 ```
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 ...
@@ -81,7 +81,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
 ...
 ```
-- en panel.components.ts, definir el nombre del formulario y en el constructor definir las reglas de validación del formulario
+- *en panel.components.ts, definir el nombre del formulario y en el constructor definir las reglas de validación del formulario*
 ```
   formOpcionesWeb: FormGroup;
 
@@ -98,7 +98,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 ## 4.- Crear un servicio
 - ng generate service tarificador
-- registrarlo en app.module.ts
+- *registrarlo en app.module.ts*
 ```
 ...
   providers: [TarificadorService],
@@ -109,7 +109,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 - npm install bootstrap
 - ng add @ng-bootstrap/ng-bootstrap
  
- - inyectamos el modal en el constructor y le añadimos un método a la clase para abrirlo. modal.compomenete.ts
+ - *inyectamos el modal en el constructor y le añadimos un método a la clase para abrirlo. modal.compomenete.ts*
  ```
   constructor(private modal:NgbModal) { }
   ...
@@ -118,7 +118,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     this.modal.open(contenido, { size: 'lg' });
   }
 ```
-- Crear la plantilla modal.html , dentro del tag <ng-template>  con el  #nombre para poder lanzarlo 
+- *Crear la plantilla modal.html , dentro del tag <ng-template>  con el  #nombre para poder lanzarlo*
 ```
 <ng-template #contenido let-modal>   
     <div class="modal-body">
