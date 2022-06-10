@@ -13,8 +13,8 @@
   "./node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
 ```
-- Now add popperjs and add it to your scripts
 - npm install @popperjs/core 
+- Add popperjs and add it to your scripts
 ```
 "scripts": [
   "./node_modules/@popperjs/core/dist/umd/popper.min.js",
