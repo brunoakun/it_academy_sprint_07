@@ -104,3 +104,27 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [TarificadorService],
 ...
 ```
+
+## 5.- NgBootstrap
+- npm install bootstrap
+- ng add @ng-bootstrap/ng-bootstrap
+ 
+ - inyectamos el modal en el constructor y le añadimos un método a la clase para abrirlo. modal.compomenete.ts
+ ```
+  constructor(private modal:NgbModal) { }
+  ...
+  
+  abrirModal(contenido: any): void {
+    this.modal.open(contenido, { size: 'lg' });
+  }
+```
+- Crear la plantilla modal.html , dentro del tag <ng-template>  con el  #nombre para poder lanzarlo 
+```
+<ng-template #contenido let-modal>   
+    <div class="modal-body">
+      TEXTO...
+    </div>  
+</ng-template>
+
+<button type="button" class="btn btn-outline-danger" (click)="abrirModal(contenido)">lanzar modal SM</button>
+ ```

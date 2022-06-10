@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { TarificadorService } from '../tarificador.service';
 import { Presupuesto } from '../presupuesto.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-panel',
@@ -17,7 +18,8 @@ export class PanelComponent implements OnInit {
 
   constructor(
     private tarService: TarificadorService,
-    private _builder: FormBuilder
+    private _builder: FormBuilder,
+    private modal: NgbModal
   ) {
     this.formOpcionesWeb = this._builder.group({
       paginas: ['1', Validators.required],
@@ -45,6 +47,10 @@ export class PanelComponent implements OnInit {
     this.calcular();
   }
 
+  // Abrir modal info
+  abrirModal(contenido: any): void {
+    this.modal.open(contenido, { size: 'lg' });
+  }
 
 
 }

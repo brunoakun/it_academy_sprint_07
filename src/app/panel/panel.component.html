@@ -9,13 +9,16 @@
                     <input type="number" id="paginas" #pagina class="form-control" [(ngModel)]="presup.webPaginas"
                         [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1" required>
                     <button class="btn btn-warning" type="button" (click)="pags('+',presup.webPaginas)">+</button>
+                    <span (click)="abrirModal(modalPaginas)" class="mano">
+                        <i class="fa-solid fa-circle-info fa-lg ms-2 mt-2 text-secondary"></i>
+                    </span>
                 </div>
             </div>
             <div [hidden]="presup.webPaginas" class="mt-2 alert alert-danger">
                 Páginas es required
             </div>
         </div>
-        
+
         <div class="row mb-2">
             <label for="idiomas" class="col-sm-7 col-form-label">Número de idiomas</label>
             <div class="col-sm-5">
@@ -24,6 +27,9 @@
                     <input type="number" id="idiomas" #idiomas class="form-control" [(ngModel)]="presup.webIdiomas"
                         [ngModelOptions]="{standalone: true}" (ngModelChange)="calcular()" min="1">
                     <button class="btn btn-warning" type="button" (click)="idio('+',presup.webIdiomas)">+</button>
+                    <span (click)="abrirModal(modalIdiomas)" class="mano">
+                        <i class="fa-solid fa-circle-info fa-lg ms-2 mt-2 text-secondary"></i>
+                    </span>
                 </div>
             </div>
             <div [hidden]="presup.webIdiomas" class="mt-2 alert alert-danger">
@@ -34,3 +40,21 @@
 
     </form>
 </div>
+
+<ng-template #modalPaginas let-modal>
+    <div class="modal-header"><h5>Número de páginas</h5></div>
+        <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto iste maxime tempore amet quibusdam, quisquam
+        ducimus fuga exercitationem quasi impedit commodi quos, facilis ad sint voluptatem reprehenderit est soluta
+        molestias.
+    </div>
+</ng-template>
+
+<ng-template #modalIdiomas let-modal>  
+    <div class="modal-header"><h5>Número de Idiomas</h5></div>
+    <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto iste maxime tempore amet quibusdam, quisquam
+        ducimus fuga exercitationem quasi impedit commodi quos, facilis ad sint voluptatem reprehenderit est soluta
+        molestias.
+    </div>
+</ng-template>

@@ -1,0 +1,13 @@
+/* Modificar el modal  de ng-bootstrap*/
+
+::ng-deep .modal-content {
+    background-color: whitesmoke;
+    border-radius: 100px;
+    padding: 20px;
+    border-color: black;
+    border-width: medium;
+}
+
+.mano {    
+    cursor: pointer;
+}
