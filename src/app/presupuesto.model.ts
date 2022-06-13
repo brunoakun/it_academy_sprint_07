@@ -9,11 +9,12 @@ export class Presupuesto {
     _nombre?: string = '';
     _cliente: string = '';
     _id?: number = 0;
+    _fecha?: Date = null;
 
 
 
     //CONSTRUCTOR
-    constructor(web: boolean, seo: boolean, adwords: boolean, webPaginas: number, webIdiomas: number, total: number, nombre: string, cliente: string, id?: number) {
+    constructor(web: boolean, seo: boolean, adwords: boolean, webPaginas: number, webIdiomas: number, total: number, nombre: string, cliente: string, id?: number, fecha?: Date) {
         this._web = web;
         this._seo = seo;
         this._adwords = adwords;
@@ -21,8 +22,9 @@ export class Presupuesto {
         this._webIdiomas = webIdiomas;
         this._total = total;
         this._nombre = nombre;
-        this._cliente = cliente;  
+        this._cliente = cliente;
         this._id = id;
+        this._fecha = fecha;
     }
 
     //GETTERS & SETTERS
@@ -35,6 +37,7 @@ export class Presupuesto {
     get total() { return this._total; }
     get nombre() { return this._nombre; }
     get cliente() { return this._cliente; }
+    get fecha() { return this._fecha; }
 
     set id(val) { this._id = val; }
     set web(val) { this._web = val; }
@@ -45,6 +48,7 @@ export class Presupuesto {
     set total(val) { this._total = val; }
     set nombre(val) { this._nombre = val; }
     set cliente(val) { this._cliente = val; }
+    set fecha(val) { this._fecha = val; }
 
     //MÉTODOS
 

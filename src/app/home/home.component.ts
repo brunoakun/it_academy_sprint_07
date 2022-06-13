@@ -54,6 +54,8 @@ export class HomeComponent implements OnInit {
     this.presup.cliente = this.presupForm.value.cliente;
     this.presup.nombre = this.presupForm.value.nombrePresup;
 
+    this.presup.fecha = new Date();
+
     this.arrPresupuestos.push(this.presup);
     this.presup = new Presupuesto(this.web, this.seo, this.adw, 1, 1, 0, '', '');
 

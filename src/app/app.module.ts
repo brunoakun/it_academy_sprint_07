@@ -1,5 +1,5 @@
 import { TarificadorService } from './tarificador.service';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelComponent } from './panel/panel.component';
 import { ListaPresupuestosComponent } from './lista-presupuestos/lista-presupuestos.component';
+import { registerLocaleData } from '@angular/common';
 
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs, 'es');
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,10 @@ import { ListaPresupuestosComponent } from './lista-presupuestos/lista-presupues
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TarificadorService],
+  providers: [
+    TarificadorService,
+    { provide: LOCALE_ID, useValue: 'es' }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
