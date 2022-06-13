@@ -1,5 +1,9 @@
 export class Presupuesto {
-    //PROPIEDADES
+
+    //ATRIBUTOS    
+    static id: number = 1;
+
+    _id: number;
     _web: boolean = false;
     _seo: boolean = false;
     _adwords: boolean = false;
@@ -8,13 +12,11 @@ export class Presupuesto {
     _total: number = 0;
     _nombre?: string = '';
     _cliente: string = '';
-    _id?: number = 0;
     _fecha?: Date = null;
 
 
-
     //CONSTRUCTOR
-    constructor(web: boolean, seo: boolean, adwords: boolean, webPaginas: number, webIdiomas: number, total: number, nombre: string, cliente: string, id?: number, fecha?: Date) {
+    constructor(web: boolean, seo: boolean, adwords: boolean, webPaginas: number, webIdiomas: number, total: number, nombre: string, cliente: string, fecha?: Date, id?: number) {
         this._web = web;
         this._seo = seo;
         this._adwords = adwords;
@@ -23,11 +25,13 @@ export class Presupuesto {
         this._total = total;
         this._nombre = nombre;
         this._cliente = cliente;
-        this._id = id;
         this._fecha = fecha;
+
+        this._id = Presupuesto.id++;
+
     }
 
-    //GETTERS & SETTERS
+    //GETTERS & SETTERS}
     get id() { return this._id; }
     get web() { return this._web; }
     get seo() { return this._seo; }
@@ -39,7 +43,7 @@ export class Presupuesto {
     get cliente() { return this._cliente; }
     get fecha() { return this._fecha; }
 
-    set id(val) { this._id = val; }
+    // set id(val) { this._id = val; }
     set web(val) { this._web = val; }
     set seo(val) { this._seo = val; }
     set adwords(val) { this._adwords = val; }

@@ -16,13 +16,19 @@ export class ListaPresupuestosComponent implements OnInit {
   icoNombre: string = '';
   ordenFlag: boolean = true;
 
+  filtro: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  borraPresup(i: number): void {
-    this.presupuestos.splice(i, 1);
+  borraPresup(id: number): void {
+    for (let i = 0; i < this.presupuestos.length; i++) {
+      if (this.presupuestos[i].id == id) {
+        this.presupuestos.splice(i, 1);
+      }
+    }
   }
 
   ordenaPresup(col: string) {
@@ -59,5 +65,16 @@ export class ListaPresupuestosComponent implements OnInit {
   }
 
 
+  filtrar(evento: any) {
+    if (!evento.target.value) {
+      this.filtro = '';
+    } else {
+      this.filtro = evento.target.value;
+    }
+  }
+
+  buscaPresup() {
+    return this.presupuestos.filter(d => d.nombre.indexOf(this.filtro) >= 0);
+  }
 
 }

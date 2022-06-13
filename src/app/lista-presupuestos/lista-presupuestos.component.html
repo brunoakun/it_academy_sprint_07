@@ -1,20 +1,25 @@
 <div class="container">
-    <h2 class="text-success">Presupuestos: {{presupuestos.length}}</h2>
+    <h2 class="text-success">Presupuestos: {{buscaPresup().length}}</h2>
+
+    <span [hidden]="presupuestos.length <2">
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary btn-sm" type="button" (click)="ordenaPresup('fecha')">Por fecha <i
+                    [ngClass]="icoFecha"></i></button>
+            <button class="btn btn-outline-secondary btn-sm" type="button" (click)="ordenaPresup('nombre')">Alfabético
+                <i [ngClass]="icoNombre"></i></button>
+            <button class="btn btn-outline-secondary btn-sm" type="button" (click)="ordenaPresup('nada')">Por
+                defecto</button>
+
+            <span><input (keyup)="filtrar($event)" /><i class="bi bi-search"></i></span>
+        </div>
+    </span>
 
 
-    <div class="d-flex justify-content-between">
-        <button class="btn btn-outline-secondary btn-sm" type="button" [hidden]="presupuestos.length <2"
-            (click)="ordenaPresup('fecha')">Por fecha <i [ngClass]="icoFecha"></i></button>
-        <button class="btn btn-outline-secondary btn-sm" type="button" [hidden]="presupuestos.length <2"
-            (click)="ordenaPresup('nombre')">Alfabético <i [ngClass]="icoNombre"></i></button>
-        <button class="btn btn-outline-secondary btn-sm" type="button" [hidden]="presupuestos.length <2"
-            (click)="ordenaPresup('nada')">Por defecto</button>
-    </div>
 
     <table class="table">
         <thead>
             <tr>
-                <th th:with="0" scope="col"></th>
+                <th th:with="0" scope="col">id</th>
                 <th scope="col">fecha</th>
                 <th scope="col">Presupuesto</th>
                 <th scope="col">Cliente</th>
@@ -22,8 +27,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let presupuesto of presupuestos, let i=index">
-                <td class="del" (click)="borraPresup(i)"> <i class="bi-trash"></i></td>
+            <tr *ngFor="let presupuesto of buscaPresup(), let i=index">
+                <td class="del" (click)="borraPresup(presupuesto.id)"> <i class="bi-trash"></i> {{presupuesto.id}}</td>
                 <td>{{presupuesto.fecha | date:'short'}}</td>
                 <td>{{presupuesto.nombre}}</td>
                 <td>{{presupuesto.cliente}}</td>
@@ -31,6 +36,11 @@
             </tr>
         </tbody>
     </table>
+
+
+    <span [hidden]="buscaPresup().length">
+        <div><em>No hay datos</em></div>
+    </span>
 
 
 </div>
