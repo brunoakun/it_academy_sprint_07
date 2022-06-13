@@ -128,3 +128,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 <button type="button" class="btn btn-outline-danger" (click)="abrirModal(contenido)">lanzar modal SM</button>
  ```
+
+## 6.- Locale en fechas  
+ - *Modificar el app.module.ts para que las fechas aparezcan correctas en los 'pipe' de html
+ ``` 
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs, 'es');
+
+@NgModule({
+ ...
+  providers: [
+    TarificadorService,
+    { provide: LOCALE_ID, useValue: 'es' }
+  ],
+  ... 
+```
