@@ -1,27 +1,66 @@
-<h2 class="text-success">Presupuesto:</h2>
+<main>
 
-<form>
+    <div class="container">
 
-    <div class="form-check">
-        <input type="checkbox" id="web" [(ngModel)]="presup.web" [ngModelOptions]="{standalone: true}"
-            (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="web"> Una página WEB (500€) </label>
+        <div class="row">
+
+            <div class="col-6">
+                <h2 class="text-success">Presupuesto:</h2>
+                <form [formGroup]="presupForm" (ngSubmit)="onSubmit()">
+
+                    <div class="row mb-2">
+                        <div class="col ">
+                            <label for="nombrePresup" class="form-label">Nombre del presupuesto:</label>
+                            <input type="text" class="form-control" id="nombrePresup" formControlName="nombrePresup"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <div class="col ">
+                            <label for="cliente" class="form-label">Nombre del Cliente:</label>
+                            <input type="text" class="form-control" id="cliente" formControlName="cliente" required>
+                            <hr>
+                        </div>
+                    </div>
+
+
+                    <div class="form-check">
+                        <input type="checkbox" id="web" [(ngModel)]="presup.web" [ngModelOptions]="{standalone: true}"
+                            (change)="checkboxChange($event)" />
+                        <label class="form-check-label" for="web"> Una página WEB (500€) </label>
+                    </div>
+
+                    <app-panel *ngIf="presup.web" [presup]="presup"></app-panel>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="seo" [(ngModel)]="presup.seo" [ngModelOptions]="{standalone: true}"
+                            (change)="checkboxChange($event)" />
+                        <label class="form-check-label" for="seo"> Una consultoria SEO (300€) </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="adwords" [(ngModel)]="presup.adwords"
+                            [ngModelOptions]="{standalone: true}" (change)="checkboxChange($event)" />
+                        <label class="form-check-label" for="adwords"> Una campaña de Google Ads (200€) </label>
+                    </div>
+
+
+
+
+                    <div class="d-flex justify-content-between">
+                        <p class="fw-bold">Precio: {{presup.total |number:'1.0-0' }}€</p>
+                        <button class="btn btn-success" type="submit" [disabled]="!presupForm.valid">Guardar</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="col-6">
+                <app-lista-presupuestos [presupuestos]="arrPresupuestos"></app-lista-presupuestos>
+            </div>
+
+        </div>
     </div>
-
-    <app-panel *ngIf="presup.web" [presup]="presup"></app-panel>
-
-    <div class="form-check">
-        <input type="checkbox" id="seo" [(ngModel)]="presup.seo" [ngModelOptions]="{standalone: true}"
-            (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="seo"> Una consultoria SEO (300€) </label>
-    </div>
-
-    <div class="form-check">
-        <input type="checkbox" id="adwords" [(ngModel)]="presup.adwords" [ngModelOptions]="{standalone: true}"
-            (change)="checkboxChange($event)" />
-        <label class="form-check-label" for="adwords"> Una campaña de Google Ads (200€) </label>
-    </div>
-
-
-</form>
-<p class="fw-bold">Precio: {{presup.total |number:'1.0-0' }}€</p>
+</main>

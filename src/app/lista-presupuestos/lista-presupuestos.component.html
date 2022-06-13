@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="text-success">Presupuestos:</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">#</th>
+                <th scope="col">Presupuesto</th>
+                <th scope="col">Cliente</th>
+                <th scope="col" style="text-align:right">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let presupuesto of presupuestos, let i=index">
+                <td class="del" (click)="borraPresup(i)">  <i class="bi-trash"></i></td>
+                <td>{{i}}</td>
+                <td>{{presupuesto.nombre}}</td>
+                <td>{{presupuesto.cliente}}</td>
+                <td align="right">{{presupuesto.total |number:'1.0-0' }}€ </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+</div>

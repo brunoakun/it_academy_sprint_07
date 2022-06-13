@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelComponent } from './panel/panel.component';
+import { ListaPresupuestosComponent } from './lista-presupuestos/lista-presupuestos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PanelComponent
+    PanelComponent,
+    ListaPresupuestosComponent
   ],
   imports: [
     BrowserModule,

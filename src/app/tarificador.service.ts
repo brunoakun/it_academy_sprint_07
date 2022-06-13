@@ -15,12 +15,15 @@ export class TarificadorService {
 
   //METODOS
   calculaTotal(p: Presupuesto): Presupuesto {
-    console.log(p);
+   // console.log(p);
     p.total = 0;
-    
+
     if (p.web) {
       p.total += 500;
       p.total += (p.webPaginas * p.webIdiomas * 30);
+    } else {
+      p.webPaginas = 1;
+      p.webIdiomas = 1;
     }
     if (p.seo) p.total += 300;
     if (p.adwords) p.total += 200;
