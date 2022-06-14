@@ -174,3 +174,33 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 ...
     
 ```
+## 8.- Modificar parámetros de la URL
+- añadir al constructor del .ts 
+ 
+```
+  constructor(
+    ..
+    private router: Router,
+    private rutaActiva: ActivatedRoute
+    ..
+    )
+```
+*añadir la función:*
+``` 
+public setUrlParametros() {
+  const queryParams: Params = {
+    web: this.presup.web,
+    seo: this.presup.seo,
+    adw: this.presup.adwords
+  };
+
+  this.router.navigate(
+    [],
+    {
+      relativeTo: this.rutaActiva,
+      queryParams: queryParams
+    });
+}
+
+    
+```

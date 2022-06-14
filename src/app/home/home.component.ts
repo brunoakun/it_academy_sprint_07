@@ -6,7 +6,7 @@ import { Presupuesto } from '../presupuesto.model';
 
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -34,13 +34,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private servTarificador: TarificadorService,
-    private route: ActivatedRoute
+    private router: Router,
+    private rutaActiva: ActivatedRoute
   ) {
   }
 
   //METODOS
   ngOnInit(): void {
-    this.route.queryParams
+
+    // Cargar valores de url
+    this.rutaActiva.queryParams
       .subscribe(params => {
         console.log(params); // { json de parámetros URL }       
         this.web = (params['web'] === 'true');   // de string a booleano:
@@ -52,9 +55,10 @@ export class HomeComponent implements OnInit {
     this.checkboxChange();
   }
 
-  checkboxChange() {
+  checkboxChange() {    
     console.log(`Estado= ${this.presup.web} ${this.presup.seo} ${this.presup.adwords}`);
     this.servTarificador.calculaTotal(this.presup);
+    this.setUrlParametros();
   }
 
 
@@ -78,5 +82,24 @@ export class HomeComponent implements OnInit {
     console.log(this.presup);
 
   }
+
+
+
+  // Modificar parámetros de la URL
+  public setUrlParametros() {
+    const queryParams: Params = {
+      web: this.presup.web,
+      seo: this.presup.seo,
+      adw: this.presup.adwords
+    };
+
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.rutaActiva,
+        queryParams: queryParams
+      });
+  }
+
 
 }
