@@ -1,5 +1,7 @@
 import { Presupuesto } from './../presupuesto.model';
 import { Component, Input, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-lista-presupuestos',
@@ -24,15 +26,27 @@ export class ListaPresupuestosComponent implements OnInit {
   }
 
   borraPresup(id: number): void {
-    for (let i = 0; i < this.presupuestos.length; i++) {
-      if (this.presupuestos[i].id == id) {
-        this.presupuestos.splice(i, 1);
+
+    const indice = this.presupuestos.findIndex(object => {
+      return object.id === id;
+    });
+
+    Swal.fire({
+      title: '¿Borrar?',
+      text: `Presupuesto ${this.presupuestos[indice].nombre} de ${this.presupuestos[indice].total}€`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (indice > -1) this.presupuestos.splice(indice, 1);
       }
-    }
+    });
+
   }
 
   ordenaPresup(col: string) {
-
     const UP = 'bi bi-arrow-up-circle-fill';
     const DOWN = 'bi bi-arrow-down-circle-fill';
 
@@ -78,3 +92,4 @@ export class ListaPresupuestosComponent implements OnInit {
   }
 
 }
+

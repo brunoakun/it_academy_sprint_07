@@ -143,3 +143,34 @@ registerLocaleData(localeEs, 'es');
   ],
   ... 
 ```
+
+
+## 7.- Instalar  sweetalert2
+- npm install sweetalert2 @sweetalert2/ngx-sweetalert2 
+
+*modificar app.module.ts:*
+```
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+  imports: [
+    BrowserModule,
+    FormsModule,
+    [SweetAlert2Module.forRoot()]
+  ],
+
+```
+*modificar angular.json:*
+```
+...
+    "styles":[
+      "src/styles.css",
+      "node_modules/bootstrap/dist/css/bootstrap.css",
+      "node_modules/bootstrap-sweetaler/dist/css/bootstrap.css"
+    ],
+    "scripts": [
+      "node_modules/jquery/dist/jquery.js",
+      "node_modules/popper.js/dist/popper.js",
+      "node_modules/bootstrap/dist/js/bootstrap.js"           
+    ]
+...
+    
+```

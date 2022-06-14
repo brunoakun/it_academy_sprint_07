@@ -13,6 +13,10 @@ import { registerLocaleData } from '@angular/common';
 
 import localeEs from '@angular/common/locales/es';
 registerLocaleData(localeEs, 'es');
+
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,8 @@ registerLocaleData(localeEs, 'es');
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    [SweetAlert2Module.forRoot()]
   ],
   providers: [
     TarificadorService,
