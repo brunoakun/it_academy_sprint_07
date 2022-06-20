@@ -13,9 +13,9 @@ export class TarificadorService {
   //CONSTRUCTOR
   constructor() { }
 
-  //METODOS
+  //METODOS  
   calculaTotal(p: Presupuesto): Presupuesto {
-   // console.log(p);
+    // console.log(p);
     p.total = 0;
 
     if (p.web) {
@@ -30,4 +30,24 @@ export class TarificadorService {
 
     return (p);
   }
+
+  guardaPresup(p: Presupuesto): void {
+    let key = 'presup-' + p.id;
+    localStorage.setItem(key, JSON.stringify(p));
+  }
+
+
+  borrarPresup(id:number): void { 
+    let key = 'presup-' + id.toString();
+    localStorage.removeItem(key);
+  }
+
+
+  recuperaPresup(id: number): Presupuesto {
+    // console.log(p); 
+    let key = 'presup-' + id;
+    let p = localStorage.getItem(key); 
+    return (JSON.parse(p));
+  }
+
 }

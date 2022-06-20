@@ -53,6 +53,7 @@ export class Presupuesto {
     set nombre(val) { this._nombre = val; }
     set cliente(val) { this._cliente = val; }
     set fecha(val) { this._fecha = val; }
+    set id(val) { this._id = val; }
 
     //MÉTODOS
 

@@ -12,16 +12,17 @@
 
                         <div class="row mb-2">
                             <div class="col ">
-                                <label for="nombrePresup" class="form-label">Nombre del presupuesto:</label>
-                                <input type="text" class="form-control" id="nombrePresup" formControlName="nombrePresup"
-                                    required>
+                                <label for="nombre" class="form-label">Nombre del presupuesto:</label>
+                                <input type="text" class="form-control" id="nombre" [(ngModel)]="presup.nombre"
+                                    formControlName="nombre" required>
                             </div>
                         </div>
 
                         <div class="row mb-2">
                             <div class="col ">
                                 <label for="cliente" class="form-label">Nombre del Cliente:</label>
-                                <input type="text" class="form-control" id="cliente" formControlName="cliente" required>
+                                <input type="text" class="form-control" id="cliente" [(ngModel)]="presup.cliente"
+                                    formControlName="cliente" required>
                                 <hr>
                             </div>
                         </div>
@@ -62,7 +63,8 @@
             </div>
 
             <div class="col-6">
-                <app-lista-presupuestos [presupuestos]="arrPresupuestos"></app-lista-presupuestos>
+                <app-lista-presupuestos (eventoHijo)="editPresup($event)" [presupuestos]="arrPresupuestos">
+                </app-lista-presupuestos>
             </div>
 
         </div>

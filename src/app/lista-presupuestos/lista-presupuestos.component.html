@@ -33,8 +33,11 @@
             <tbody>
                 <tr *ngFor="let presupuesto of buscaPresup(), let i=index">
                     <td> {{presupuesto.id}}</td>
-                    <td class="del" (click)="borraPresup(presupuesto.id)"> <i class="bi-trash"></i> </td>
-                    <td></td>
+                    <td class="del" (click)="borraPresup(presupuesto.id)" title="BORRAR"> <i class="bi-trash"></i> </td>
+                    <!--
+                    <td class="edit" (click)="ejecutarEvento( presupuesto )"> <i class="bi-pen"></i> </td>
+                    -->
+                    <td class="edit" (click)="editar(presupuesto)" title="Editar"> <i class="bi-pen"></i> </td>
                     <td>{{presupuesto.fecha | date:'short'}}</td>
                     <td>{{presupuesto.nombre}}</td>
                     <td>{{presupuesto.cliente}}</td>
@@ -47,6 +50,9 @@
         <span [hidden]="buscaPresup().length">
             <div class="text-center text-danger p-2"><em>No hay datos</em></div>
         </span>
+
+
+
     </div>
 
 
