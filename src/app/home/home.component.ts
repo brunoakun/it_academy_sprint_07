@@ -80,7 +80,6 @@ export class HomeComponent implements OnInit {
 
     // Hacer un push del presup al array de presupuestos
     this.presup.fecha = new Date();
-
     this.arrPresupuestos.push(this.presup);
 
     this.web = false;
@@ -126,7 +125,7 @@ export class HomeComponent implements OnInit {
 
 
   editPresup(p: Presupuesto) {
-    //Cargar datos del presupuesto enviado desde el hijo (lista-presupuestos.ts)
+    //Recuperar datos del presupuesto enviado desde el hijo (lista-presupuestos.ts)
    // alert("Desde el padre id: " + p.id);
 
     for (let i = 0; i < this.arrPresupuestos.length; i++) {
