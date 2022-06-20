@@ -137,6 +137,7 @@ export class HomeComponent implements OnInit {
         this.arrPresupuestos.splice(i, 1);
         this.servTarificador.borrarPresup(p.id);
       }
+      this.setUrlParametros();
     }
 
   }
